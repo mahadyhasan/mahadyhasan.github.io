@@ -24,7 +24,7 @@ in my experience.
 * Enables Parallelization
 * Fewer Lines of Code
 
-## Anonymous classes can be replaced with Lambda Expressions
+## Lambda Expressions
 
 **Functional Interfaces** and **Lambda Expressions** will make your code more concise. Lambda is an implementation of a
 Functional Interface. Lambda expressions are simply anonymous methods which can replace the many lines of codes from
