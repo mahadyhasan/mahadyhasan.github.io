@@ -119,5 +119,5 @@ with inspections. If you are using IntelliJ IDEA for your java development, they
 about [Migrating to Java 8](https://www.jetbrains.com/help/idea/2016.1/tutorial-migrating-to-java-8.html#d355044e36)
 which I highly recommended you to read.
 
-The source code for accompanying the article can be found on [GitHub](https://github.com/mahadyhasan/tutorials/tree/master/core-java8)
+The source code for accompanying this article can be found on [GitHub](https://github.com/mahadyhasan/tutorials/tree/master/core-java8)
 
