@@ -12,19 +12,19 @@ tag:
 comments: true
 ---
 
-## Overview
+## 1. Overview
 
 As we draw closer to Java 9, Java 8 is starting to reach wide usage and many of us are still looking to implement some of
 the common Java 8 features into our existing code base. In this post, I share some of the refactorings I have applied so far
 in my experience.
 
-## Why Refactor to Java 8?
+## 2. Why Refactor to Java 8?
 
 * Performance Improvements in some of the common Data Structures
 * Enables Parallelization
 * Fewer Lines of Code
 
-## Lambda Expressions
+## 3. Lambda Expressions
 
 **Functional Interfaces** and **Lambda Expressions** will make your code more concise. Lambda is an implementation of a
 Functional Interface. Lambda expressions are simply anonymous methods which can replace the many lines of codes from
@@ -60,7 +60,7 @@ So, instead of a full *Runnable*, we have a small *Lambda* with fewer lines of c
 readability. This *lambda expression* style can be used for any suitable interface from old java libraries. We have seen
 one above with *Runnable*, but take a look at *Comparator* and so on online.
 
-## From Collection to Streams
+## 4. From Collection to Streams
 
 In real-world applications, it is quite common to process collections in a number of stages. A collection type is usually
 iteratively processed to produce another new collection, which then in turn is iteratively processed, and so on. Consider
@@ -108,3 +108,16 @@ So, compared to the successive iterations in the code above, we can provide a co
 
 And guess what? We have successfully removed the intermediate collection with the refactoring and therefore reduced the
 overhead that comes with creating a list. This piece of code is also double the faster as the loop version.
+
+## 5. Conclusions
+
+In this article I briefly touched upon refactoring existing Java code to Java 8 code making use of Lambdas and Streams.
+The goal of this writeup was only to provide a very quick introduction to how we can refactor to Java 8 code.
+
+There are many more examples of refactorings that can be applied to your code and most modern IDEs can step in here and help
+with inspections. If you are using IntelliJ IDEA for your java development, they have written a very useful article
+about [Migrating to Java 8](https://www.jetbrains.com/help/idea/2016.1/tutorial-migrating-to-java-8.html#d355044e36)
+which I highly recommended you to read.
+
+The corresponding source code for accompanying the article can be found on [GitHub](https://github.com/mahadyhasan/tutorials/tree/master/core-java8)
+
