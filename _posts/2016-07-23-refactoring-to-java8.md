@@ -107,7 +107,7 @@ So, compared to the successive iterations in the code above, we can provide a co
 {% endhighlight %}
 
 And guess what? We have successfully removed the intermediate collection with the refactoring and therefore reduced the
-overhead that comes with creating a list. This piece of code is also double the faster as the loop version.
+overhead that comes with creating a list. This piece of code is also twice as fast as the loop version.
 
 ## 5. Conclusions
 
