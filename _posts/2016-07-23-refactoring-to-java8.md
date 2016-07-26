@@ -89,7 +89,7 @@ We see many examples of code of this pattern today. If we look closely, some of 
 * Verbose - 9 lines of code for three operations
 * `pointList` is intermediate storage - it is an overhead on the program
 
-**Collection<T>** can now be exposed as a **stream** from Java 8. *Streams* are sequence of consumable elements for the consumption of an operation or iteration.
+**Collections** can now be exposed as a **stream** from Java 8. *Streams* are sequence of consumable elements for the consumption of an operation or iteration.
 They are different from collections in that they don't store values; their purpose is to process them. We can use streams to refactor the above code.
 
 With this type of refactoring, we can take anything that looks like a for loop and we can turn that into a bunch of
