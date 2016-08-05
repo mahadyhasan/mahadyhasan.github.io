@@ -15,10 +15,35 @@ comments: true
 ## 1. What are Optionals in Java 8?
 
 `java.util.Optional` gives us a way to handle null values, to prevent `NullPointerException`. They are a simple container
- for a value which may be null or non-null. The class has been added to deal with optional object references.
+ for a value which may be null or non-null. *Java 8 Optional<T>* has been added to deal with optional object references.
  The intention here is not to replace every null-able references, but to simplify the code and improve readability.
 
-## 2. Convenient Methods in Optional Class
+ The idea is, it works like a container for the type object *T*. A value of this object is returned if this value is not a
+ *null* value. If we get a *null* value in this container, then it will allows us to do some predefined actions instead
+ of throwing `NullPointerException`.
+
+## 2. How do we create Optional<T> instances?
+
+Create an instance of *Optional* class using its static method:
+
+{% highlight java %}
+Optional<String> optional = Optional.empty();
+{% endhighlight %}
+
+Return an *Optional* which contains not-null value:
+
+{% highlight java %}
+String str = "string value";
+Optional<String> optional = Optional.of(str);
+{% endhighlight %}
+
+Return an *Optional* with the specified value, if non-null, otherwise return an empty *Optional*:
+
+{% highlight java %}
+Optional<String> optional = Optional.ofNullable(getString());
+{% endhighlight %}
+
+## 3. Convenient Methods in Optional Class
 
 * `isPresent()`: return true if a value is present in **Optional**.
 * `get()`: if a value is present, returns a reference to the item contained in the optional object. Otherwise throws a *NoSuchElementException*.
@@ -40,7 +65,7 @@ comments: true
 The above are some of the common methods I've used. There are other convenient methods that the **Optional** class supports.
 
 
-## 3. Avoiding Null Checks example
+## 4. Avoiding Null Checks example
 
 {% highlight java %}
 
@@ -75,7 +100,7 @@ null-checks. Call to `orElse(T other)` will perform the null-checks on the value
 present.
 
 
-## 4. Conclusions
+## 5. Conclusions
 
 Null checks are quite cumbersome. But with Java 8, we can use `Optional` class techniques to prevent writing needless
  null checks using new features like lambda expressions.
