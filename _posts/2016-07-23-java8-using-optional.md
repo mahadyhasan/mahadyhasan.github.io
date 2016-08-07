@@ -14,9 +14,9 @@ comments: true
 
 ## 1. What are Optionals in Java 8?
 
-`java.util.Optional` gives us a way to handle null values, to prevent `NullPointerException`. They are a simple container
- for a value which may be null or non-null. Java 8 Optional&lt;T&gt; has been added to deal with optional object references.
- The intention here is not to replace every null-able references, but to simplify the code and improve readability.
+`java.util.Optional` gives us a way to handle null (missing) values, to prevent `NullPointerException`. They are a simple wrapper
+ for a value which may be null or non-null and class provides us with some nice convenient methods to interact with the value
+ when present. The intention here is not to replace every null-able references, but to simplify the code and improve readability.
 
  The idea is, it works like a container for the type object *T*. A value of this object is returned if this value is not a
  *null* value. If we get a *null* value in this container, then it will allows us to do some pre-defined actions instead
@@ -27,12 +27,16 @@ comments: true
 Create an instance of *Optional* class using its static method:
 
 {% highlight java %}
+// an empty 'Optional';
+// Pre Java 8 version of the code below is using null reference
 Optional<String> optional = Optional.empty();
 {% endhighlight %}
 
 Return an *Optional* which contains not-null value:
 
 {% highlight java %}
+// an 'Optional' where you know that it will not contain a null value;
+// 'NullPointerException' is thrown if the argument of 'of' call is a null value;
 String str = "string value";
 Optional<String> optional = Optional.of(str);
 {% endhighlight %}
@@ -40,6 +44,7 @@ Optional<String> optional = Optional.of(str);
 Return an *Optional* with the specified value, if non-null, otherwise return an empty *Optional*:
 
 {% highlight java %}
+// when you are not sure whether your 'Optional' wrapper will contain null or not;
 Optional<String> optional = Optional.ofNullable(getString());
 {% endhighlight %}
 
@@ -106,7 +111,10 @@ Null checks are quite cumbersome. But with Java 8, we can use `Optional` class t
  null checks using new features like lambda expressions.
 
  For a further understanding and examples of use of Optionals, take a look at the following article:
+
  [Avoiding Null Checks with Java 8](http://winterbe.com/posts/2015/03/15/avoid-null-checks-in-java/)
+
+ [Intention Revealing Code with Java 8's Optional](http://blog.codefx.org/techniques/intention-revealing-code-java-8-optional/)
 
  If you are looking at Optionals from a Migration perspective, have a read at JetBrain's guide on using Optionals:
   [Using Optionals](https://www.jetbrains.com/help/idea/2016.1/tutorial-migrating-to-java-8.html#d355044e686)
