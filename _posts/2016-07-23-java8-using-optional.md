@@ -22,7 +22,7 @@ comments: true
  *null* value. If we get a *null* value in this container, then it will allows us to do some pre-defined actions instead
  of throwing `NullPointerException`.
 
-## 2. How do we create Optional<T> instances?
+## 2. How do we create Optional&lt;T&gt; instances?
 
 Create an instance of *Optional* class using its static method:
 
