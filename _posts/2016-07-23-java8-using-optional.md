@@ -15,7 +15,7 @@ comments: true
 ## 1. What are Optionals in Java 8?
 
 `java.util.Optional` gives us a way to handle null values, to prevent `NullPointerException`. They are a simple container
- for a value which may be null or non-null. Java 8 Optional<T> has been added to deal with optional object references.
+ for a value which may be null or non-null. Java 8 Optional <T> has been added to deal with optional object references.
  The intention here is not to replace every null-able references, but to simplify the code and improve readability.
 
  The idea is, it works like a container for the type object *T*. A value of this object is returned if this value is not a
