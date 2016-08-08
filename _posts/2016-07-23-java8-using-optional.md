@@ -24,28 +24,37 @@ comments: true
 
 ## 2. How do we create Optional&lt;T&gt; instances?
 
+A class has two states, **present** and **empty**. In the *present*, we have a value which is not *null*. In the *empty* state,
+it does not have a value, it is like another way of representing nullable variable.
+
 Create an instance of *Optional* class using its static method:
 
 {% highlight java %}
+
 // an empty 'Optional';
 // Pre Java 8 version of the code below is using null reference
 Optional<String> optional = Optional.empty();
+
 {% endhighlight %}
 
 Return an *Optional* which contains not-null value:
 
 {% highlight java %}
+
 // an 'Optional' where you know that it will not contain a null value;
 // 'NullPointerException' is thrown if the argument of 'of' call is a null value;
 String str = "string value";
 Optional<String> optional = Optional.of(str);
+
 {% endhighlight %}
 
 Return an *Optional* with the specified value, if non-null, otherwise return an empty *Optional*:
 
 {% highlight java %}
+
 // when you are not sure whether your 'Optional' wrapper will contain null or not;
 Optional<String> optional = Optional.ofNullable(getString());
+
 {% endhighlight %}
 
 ## 3. Convenient Methods in Optional Class
@@ -74,7 +83,7 @@ The above are some of the common methods I've used. There are other convenient m
 
 {% highlight java %}
 
-public class OptionalExample2 {
+  public class OptionalExample2 {
 
     public static void main(String[] args) {
         List<Trade> tradeList = new ArrayList<>();
@@ -104,8 +113,25 @@ The *find()* method signature here tells you that the method return a trade opti
 null-checks. Call to `orElse(T other)` will perform the null-checks on the value and return other if the value is not
 present.
 
+It is the use of methods such as the `orElse(T other)` method that make **Optional** worthwhile doing.
 
-## 5. Conclusions
+## 5. Best Practices
+
+* If you have variable of type Optional, it must **NEVER** be null, otherwise it defeats the purpose of using Optional instead of null. 
+* Prefer "functional" methods like `orElse()`
+* Using `isPresent()` a lot is misusing the feature
+
+{% highlight java %}
+    // prefer
+    Trades trade = find(key).orElse(Trade.DEFAULT);
+    
+    // avoid ifPresent()
+    Optional<Trade> foundTrades = find(key);
+    if (foundTrades.isPresent()) {...}
+
+{% endhighlight %}
+
+## 6. Conclusions
 
 Null checks are quite cumbersome. But with Java 8, we can use `Optional` class techniques to prevent writing needless
  null checks using new features like lambda expressions.
